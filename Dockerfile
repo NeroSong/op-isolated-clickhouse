@@ -10,3 +10,11 @@ COPY ./configs/init-db.sh /docker-entrypoint-initdb.d/init-db.sh
 
 # 确保初始化脚本有执行权限
 RUN chmod +x /docker-entrypoint-initdb.d/init-db.sh
+
+# 修改容器的 ulimits 设置
+RUN echo "* soft nofile 262144" >> /etc/security/limits.conf && \
+    echo "* hard nofile 262144" >> /etc/security/limits.conf
+
+# 暴露 ClickHouse 的端口
+EXPOSE 9000
+EXPOSE 8123
