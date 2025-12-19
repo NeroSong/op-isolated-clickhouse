@@ -1,5 +1,5 @@
 # 使用官方 ClickHouse 基础镜像
-FROM clickhouse/clickhouse-server:24.4.4-alpine
+FROM clickhouse/clickhouse-server:25.10.2.65
 
 # 将本地配置文件和脚本复制到镜像内的正确位置
 # config.d 用于自定义配置，users.d 用于用户配置
